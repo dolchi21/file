@@ -1,14 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 
-module.exports = async (filename, data) => {
-    if (data) {
-        return write(filename, data)
-    }
+module.exports = (filename, data) => {
+    if (data) return write(filename, data)
     return read(filename)
 }
 
-async function read(filename) {
+function read(filename) {
     return new Promise((resolve, reject) => {
         fs.readFile(filename, (err, buffer) => {
             if (err) return reject(err)
@@ -17,7 +15,7 @@ async function read(filename) {
         })
     })
 }
-async function write(filename, data) {
+function write(filename, data) {
     return new Promise((resolve, reject) => {
         const str = serialize(filename, data)
         fs.writeFile(filename, str, err => {
