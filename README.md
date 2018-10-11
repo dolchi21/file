@@ -1,3 +1,13 @@
+```sh
+# INSTALL
+npm i @dolchi21/file
+```
+
+```js
+// Import
+const file = require('@dolchi21/file')
+```
+
 ```js
 // Write a file
 const movies = [
